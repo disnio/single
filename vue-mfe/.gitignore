@@ -1,0 +1,10 @@
+/node_modules
+/.cache
+/old
+.npmrc
+.vscode
+.DS_Store
+*.error
+*.log
+*.lock
+package-lock.json

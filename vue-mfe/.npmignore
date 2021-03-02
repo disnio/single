@@ -1,0 +1,11 @@
+/build
+/example
+/node_modules
+/packages
+/src
+/docs
+/old
+.npmrc
+.gitignore
+*.log
+*.lock
