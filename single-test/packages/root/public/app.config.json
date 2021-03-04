@@ -1,0 +1,28 @@
+{
+  "app": [
+    {
+      "name": "nav",
+      "main": "http://localhost:8888/js/app.js",
+      "path": "/",
+      "commonChunks": [],
+      "base": true,
+      "hash": true
+    },
+    {
+      "name": "pa",
+      "main": "http://localhost:8081/js/app.js",
+      "path": "/pa",
+      "commonChunks": [],
+      "base": false,
+      "hash": true
+    },
+    {
+      "name": "pb",
+      "main": "http://localhost:8082/js/app.js",
+      "path": "/pb",
+      "commonChunks": [],
+      "base": false,
+      "hash": true
+    }
+  ]
+}

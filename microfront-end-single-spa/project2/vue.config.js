@@ -16,10 +16,10 @@ module.exports = {
         config.module.rule('images').use('url-loader').loader('url-loader').tap(options => ({
             limit: 4096,
             fallback: {
-            loader: 'file-loader',
-            options: {
-                name: 'img/[name].[ext]'
-            }
+                loader: 'file-loader',
+                options: {
+                    name: 'img/[name].[ext]'
+                }
             }
         }))
     },
