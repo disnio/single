@@ -1,7 +1,7 @@
 const path = require('path')
 // const argv = require('minimist')(process.argv.slice(2))
 const StatsPlugin = require('stats-webpack-plugin')
-const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+// const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 
 
 module.exports = function (process, dirname) {
@@ -22,6 +22,7 @@ module.exports = function (process, dirname) {
     css: {
       extract: false
     },
+    filenameHashing: false,
 
     productionSourceMap: false,
 
@@ -29,44 +30,48 @@ module.exports = function (process, dirname) {
 
     configureWebpack: config => {
       config.devServer = {
+        disableHostCheck: true,
+        historyApiFallback: true,
         port,
         headers: {
           'Access-Control-Allow-Origin': '*',
         },
+        sockPort: port,
+        sockHost: "localhost"
       }
 
-      config.plugins.push(
-        new StatsPlugin('manifest.json', {
-          chunkModules: false,
-          entrypoints: true,
-          env: true,
-          source: false,
-          chunks: false,
-          modules: false,
-          assets: false,
-          children: false,
-          exclude: [/node_modules/]
-        }),
-      )
+      // config.plugins.push(
+      //   new StatsPlugin('manifest.json', {
+      //     chunkModules: false,
+      //     entrypoints: true,
+      //     env: true,
+      //     source: false,
+      //     chunks: false,
+      //     modules: false,
+      //     assets: false,
+      //     children: false,
+      //     exclude: [/node_modules/]
+      //   }),
+      // )
     },
 
     chainWebpack: config => {
 
-      config.output.library(appName).libraryTarget('umd')
+      config.output.library("").libraryTarget('umd')
 
-      // config.externals(['vue', 'vue-router', 'vuex'])
+      config.externals(['vue', 'vue-router', 'vuex'])
       // 一定要引否则说没有注册
-      config.plugin('script-ext-html')
-        .use(ScriptExtHtmlWebpackPlugin, [{
-          custom: {
-            test: /app.*\.js$/,
-            attribute: 'entry',
-            value: true
-          }
-        }]);
+      // config.plugin('script-ext-html')
+      //   .use(ScriptExtHtmlWebpackPlugin, [{
+      //     custom: {
+      //       test: /app.*\.js$/,
+      //       attribute: 'entry',
+      //       value: true
+      //     }
+      //   }]);
       if (isProduction) {
         // 打包目标文件加上 hash 字符串，禁止浏览器缓存
-        config.output.filename('js/index.[hash:8].js')
+        config.output.filename('js/[name].js')
       }
     },
   }

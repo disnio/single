@@ -28,7 +28,7 @@ async function bootstrap () {
     const { apps } = config.default
     apps && apps.forEach((app: AppConfig) => {
       const { commonsChunks: chunks } = app
-      if (chunks && chunks.length) {+-
+      if (chunks && chunks.length) {
         Promise.all(chunks.map(chunk => {
           return System.import(`/${app.name}/js/${chunk}.js`) // 加载完所有的异步chunk代码
         })).then(() => {
@@ -40,11 +40,11 @@ async function bootstrap () {
     })
 
     // 切换子系统的时候给body加上对应子系统的 class namespace
-    window.addEventListener('single-spa:app-change', () => {
-      const app = singleSpa.getMountedApps().pop();
-      const isApp = /^app-\w+$/.test(app);
-      if (app) document.body.className = app;
-    });
+    // window.addEventListener('single-spa:app-change', () => {
+    //   const app = singleSpa.getMountedApps().pop();
+    //   const isApp = /^app-\w+$/.test(app);
+    //   if (app) document.body.className = app;
+    // });
 
     singleSpa.start()
   } catch (e) {

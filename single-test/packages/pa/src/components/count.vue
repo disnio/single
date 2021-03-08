@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 
 export default {
   name: 'Count',
@@ -14,13 +14,22 @@ export default {
     step: Number,
   },
   computed: {
-    ...mapGetters(['count']),
+    ...mapState({
+      count: (state) => {
+        console.log('state:', state);
+        return state.pa.count;
+      },
+    }),
   },
   methods: {
     doCount() {
       this.setCount(this.step);
     },
-    ...mapActions(['setCount']),
+    ...mapActions({
+      setCount: (dispatch, payload) => {
+        dispatch('setCount', payload);
+      },
+    }),
   },
 };
 </script>

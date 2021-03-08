@@ -1,5 +1,5 @@
 {
-  "app": [
+  "apps": [
     {
       "name": "nav",
       "main": "http://localhost:8888/js/app.js",

@@ -4,9 +4,9 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state: {
+  state: () => ({
     count: 1
-  },
+  }),
   mutations: {
     set_count(state, v) {
       state.count += v;
@@ -16,9 +16,6 @@ export default new Vuex.Store({
     setCount({ commit, state }, payload) {
       commit("set_count", payload);
     }
-  },
-  getters: {
-    count: state => state.count
   },
   modules: {
   }
