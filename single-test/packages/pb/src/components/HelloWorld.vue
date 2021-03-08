@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <router-link to="/app2/about">Go to app2 about page</router-link>
+    <router-link to="/pb/about">Go to app2 about page</router-link>
   </div>
 </template>
 
@@ -8,9 +8,9 @@
 export default {
   name: 'HelloWorld',
   props: {
-    msg: String
-  }
-}
+    msg: String,
+  },
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

@@ -14,7 +14,8 @@ export default new Vuex.Store({
   },
   actions: {
     setCount({ commit, state }, payload) {
-      commit("set_count", payload);
+      console.log("pa store:", payload, state);
+      commit("set_count", payload.count);
     }
   },
   modules: {

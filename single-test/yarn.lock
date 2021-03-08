@@ -705,6 +705,13 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.12.13"
 
+"@babel/plugin-transform-strict-mode@^7.12.13":
+  version "7.12.13"
+  resolved "https://registry.npm.taobao.org/@babel/plugin-transform-strict-mode/download/@babel/plugin-transform-strict-mode-7.12.13.tgz?cache=0&sync_timestamp=1612319020895&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fplugin-transform-strict-mode%2Fdownload%2F%40babel%2Fplugin-transform-strict-mode-7.12.13.tgz#71825af557e28045fdbc547f8ef711ba6845c863"
+  integrity sha1-cYJa9VfigEX9vFR/jvcRumhFyGM=
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.12.13"
+
 "@babel/plugin-transform-template-literals@^7.13.0":
   version "7.13.0"
   resolved "https://registry.npm.taobao.org/@babel/plugin-transform-template-literals/download/@babel/plugin-transform-template-literals-7.13.0.tgz#a36049127977ad94438dee7443598d1cefdf409d"

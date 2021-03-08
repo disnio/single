@@ -15,12 +15,13 @@
     "vuex": "^3.5.1"
   },
   "devDependencies": {
+    "@babel/plugin-transform-strict-mode": "^7.12.13",
     "@vue/cli-plugin-babel": "^4.1.0",
     "@vue/cli-plugin-router": "^4.1.0",
     "@vue/cli-service": "^4.1.0",
     "postcss-selector-namespace": "^3.0.1",
-    "systemjs-webpack-interop": "^1.1.2",
     "stats-webpack-plugin": "^0.7.0",
+    "systemjs-webpack-interop": "^1.1.2",
     "vue-cli-plugin-single-spa": "^1.0.1",
     "vue-template-compiler": "^2.6.10"
   }

@@ -6,7 +6,8 @@
       "path": "/",
       "commonChunks": [],
       "base": true,
-      "hash": true
+      "hash": true,
+      "store": "nav"
     },
     {
       "name": "pa",
@@ -14,7 +15,8 @@
       "path": "/pa",
       "commonChunks": [],
       "base": false,
-      "hash": true
+      "hash": true,
+      "store": "pa"
     },
     {
       "name": "pb",
@@ -22,7 +24,8 @@
       "path": "/pb",
       "commonChunks": [],
       "base": false,
-      "hash": true
+      "hash": true,
+      "store": "pb"
     }
   ]
 }

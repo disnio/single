@@ -14,22 +14,14 @@ export default {
     step: Number,
   },
   computed: {
-    ...mapState({
-      count: (state) => {
-        console.log('state:', state);
-        return state.pa.count;
-      },
-    }),
+    ...mapState(['count']),
   },
   methods: {
     doCount() {
-      this.setCount(this.step);
+      console.log('this:', this);
+      this.setCount({ count: this.step });
     },
-    ...mapActions({
-      setCount: (dispatch, payload) => {
-        dispatch('setCount', payload);
-      },
-    }),
+    ...mapActions(['setCount']),
   },
 };
 </script>

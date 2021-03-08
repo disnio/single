@@ -26,11 +26,17 @@ const vueLifecycles = singleSpaVue({
 
 export const bootstrap = [
   () => {
+    console.log("VUE_APP_NAME", VUE_APP_NAME)
+
     return new Promise((resolve, reject) => {
       // 注册当前应用的store
       console.log(window.rootStore);
       try {
-        window.rootStore.registerModule(VUE_APP_NAME, store);
+        window.rootStore.registerModule(VUE_APP_NAME, store
+          // , {
+          // preserveState: true
+          // }
+        );
         resolve();
       } catch (e) {
         reject(e)
