@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "webpack-dev-server --config webpack.dev.config.js",
+    "serve": "webpack-dev-server --config webpack.dev.config.js --env isLocal=true",
     "build": "webpack -p --progress --config webpack.prod.config.js"
   },
   "dependencies": {

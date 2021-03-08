@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  portal-ui:
+    build:
+      context: ./portal
+    networks:
+      - mp
+
+  dashboard-ui:
+    build:
+      context: ./dashboard
+    networks:
+      - mp
+
+  settings-ui:
+    build:
+      context: ./settings
+    networks:
+      - mp
+
+  root-ui:
+    build:
+      context: ./root
+    networks:
+      - mp
+
+  proxy:
+    image: nginx:stable-alpine
+    depends_on:
+      - portal-ui
+      - dashboard-ui
+      - settings-ui
+      - root-ui
+    ports:
+      - '80:80'
+    volumes:
+      - ./proxy/nginx.conf:/etc/nginx/nginx.conf
+    networks:
+      - mp
+
+networks:
+  mp:

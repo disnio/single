@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet"
+          type="text/css"> -->
+    <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/quasar@1.12.5/dist/quasar.min.css" rel="stylesheet" type="text/css">
+
+    <title>Microportal</title>
+    <!--
+      Remove this if you only support browsers that support async/await.
+      This is needed by babel to share largeish helper code for compiling async/await in older
+      browsers. More information at https://github.com/single-spa/create-single-spa/issues/112
+    -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/regenerator-runtime@0.13.5/runtime.min.js"></script> -->
+    <!--
+      This CSP allows any SSL-enabled host, but you should limit these directives further to increase your app's security.
+      Learn more about CSP policies at https://content-security-policy.com/#directive
+    -->
+    <!--    <meta http-equiv="Content-Security-Policy"-->
+    <!--          content="default-src 'self' https: localhost:*; script-src 'unsafe-inline' https: localhost:*; connect-src https: localhost:* ws://localhost:*; style-src 'unsafe-inline' https:; object-src 'none';">-->
+    <meta name="importmap-type" content="systemjs-importmap"/>
+
+    <script type="systemjs-importmap">
+    {
+      "imports": {
+        "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.5.0/lib/system/single-spa.min.js",
+        "vue": "https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js",
+        "vue-router": "https://cdn.jsdelivr.net/npm/vue-router@3.3.4/dist/vue-router.min.js",
+        "vuex": "https://cdn.jsdelivr.net/npm/vuex@3.4.0/dist/vuex.min.js",
+        "quasar": "https://cdn.jsdelivr.net/npm/quasar@1.12.5/dist/quasar.umd.min.js",
+        "single-spa-vue": "https://cdn.jsdelivr.net/npm/single-spa-vue@1.8.2/lib/single-spa-vue.min.js"
+      }
+    }
+    </script>
+
+    <% if (isLocal) { %>
+        <script type="systemjs-importmap">
+    {
+      "imports": {
+        "@microportal/root": "http://localhost:9000/main.js",
+        "@microportal/portal": "http://localhost:7070/js/app.js",
+        "@microportal/dashboard": "http://localhost:7071/js/app.js",
+        "@microportal/settings": "http://localhost:7072/js/app.js"
+      }
+    }
+        </script>
+    <% } else { %>
+<!--        <script type="systemjs-importmap" src="/importmap.json"></script>-->
+    <script type="systemjs-importmap">
+        {
+            "imports": {
+                "@microportal/root": "/main.js",
+                "@microportal/portal": "/portal-ui/js/app.js",
+                "@microportal/dashboard": "/dashboard-ui/js/app.js",
+                "@microportal/settings": "/settings-ui/js/app.js"
+            }
+        }
+        </script>
+    <% } %>
+
+    <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@1.14.6/dist/import-map-overrides.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.3.1/dist/system.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.3.1/dist/extras/amd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.3.1/dist/extras/named-exports.js"></script>
+</head>
+<body>
+<main></main>
+<script>
+    window.quasarConfig = {
+        brand: {
+            primary: '#3eab93',
+            secondary: '#448e96',
+            accent: '#9e55ab',
+
+            dark: '#454545',
+
+            positive: '#36964d',
+            negative: '#ad0c1f',
+            info: '#30aac2',
+            warning: '#deb137'
+        },
+    }
+</script>
+
+<script>
+    System.import('@microportal/root');
+</script>
+<import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
+</body>
+</html>

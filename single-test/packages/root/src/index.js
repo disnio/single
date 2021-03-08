@@ -1,4 +1,6 @@
 import { registerApp } from './utils';
+import {addErrorHandler, getAppStatus, registerApplication, start} from "single-spa";
+
 import 'systemjs';
 
 async function bootstrap() {
@@ -32,7 +34,7 @@ async function bootstrap() {
           registerApp(singleSpa, app);
         })
       } else {
-        registerApp(singleSpa, app);
+        await registerApp(singleSpa, app);
       }
     })
 
@@ -43,12 +45,18 @@ async function bootstrap() {
         document.body.className = app;
       }
     })
-
-    singleSpa.start()
+// todo ??
+    singleSpa.start({urlRerouteOnly: true,})
   } catch (e) {
     throw new Error("config load fail")
   }
 }
+
+addErrorHandler(err => {
+    console.log(err);
+    console.log(err.appOrParcelName);
+    console.log(getAppStatus(err.appOrParcelName));
+});
 
 bootstrap().then(() => {
   console.log("system runing");
