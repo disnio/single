@@ -1,18 +1,27 @@
 import { registerApp } from './utils';
-import {addErrorHandler, getAppStatus, registerApplication, start} from "single-spa";
-
-import 'systemjs';
+// import { addErrorHandler, getAppStatus, registerApplication, start, getMountedApps } from "single-spa";
+// import Vue from 'vue';
+// import Router from 'vue-router'
+// import Vuex from 'vuex'
+import 'systemjs'
 
 async function bootstrap() {
   const [singleSpa, Vue, VueRouter, Vuex] = await Promise.all([
     System.import('single-spa'),
+
     System.import('vue'),
     System.import('vue-router'),
     System.import('vuex'),
-  ])
+  ]).catch(e => {
+    console.log("Promise:xx", e);
+  })
+
+  // Vue.config = {
+  //   ...Vue.config
+  // }
 
   Vue.config.devtools = process.env.NODE_ENV === 'development'
-  Vue.use(VueRouter)
+  Vue.use(Router)
   Vue.use(Vuex)
 
   Vue.prototype.$eventBus = new Vue();
@@ -34,7 +43,7 @@ async function bootstrap() {
           registerApp(singleSpa, app);
         })
       } else {
-        await registerApp(singleSpa, app);
+        registerApp(singleSpa, app);
       }
     })
 
@@ -45,19 +54,16 @@ async function bootstrap() {
         document.body.className = app;
       }
     })
-// todo ??
-    singleSpa.start({urlRerouteOnly: true,})
+    // todo ??{urlRerouteOnly: true,}
+    singleSpa.start()
   } catch (e) {
     throw new Error("config load fail")
   }
 }
 
-addErrorHandler(err => {
-    console.log(err);
-    console.log(err.appOrParcelName);
-    console.log(getAppStatus(err.appOrParcelName));
-});
 
-bootstrap().then(() => {
-  console.log("system runing");
-})
+
+bootstrap()
+//   .then(() => {
+//   console.log("system runing");
+// })

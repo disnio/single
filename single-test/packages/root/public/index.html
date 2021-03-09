@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>spa test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="importmap-type" content="systemjs-importmap" />
+    <!-- 配置文件注意写成绝对路径：/开头，否则访问子项目的时候重定向-->
+    <script type="systemjs-importmap" src="importmap.json"></script>
+    <script src="/lib/vue.js"></script>
+    <!-- <script src="/lib/vue-router.js"></script>
+    <script src="/lib/vuex.js"></script>
+    <script src="/lib/single-spa.dev.js"></script> -->
+
+    <script src="/lib/import-map-overrides.js"></script>
+
+    <script src="/lib/system.js"></script>
+    <script src="/lib/amd.js"></script>
+    <script src="/lib/named-exports.js"></script>
+    <!-- <script src="https://cdn.bootcdn.net/ajax/libs/systemjs/6.7.1/extras/named-register.js"></script>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/systemjs/6.7.1/extras/use-default.js"></script> -->
+  </head>
+  <body>
+    <import-map-overrides-full
+      show-when-local-storage="overrides-ui"
+    ></import-map-overrides-full>
+    <div id="root"></div>
+  </body>
+</html>

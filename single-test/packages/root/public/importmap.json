@@ -1,8 +1,11 @@
 {
   "imports": {
-    "nav": "/js/app.js",
-    "pa": "/js/app.js",
-    "pb": "/js/app.js",
-    "main": "/main.js"
+    "single-spa": "/lib/single-spa.dev.js",
+    "vue": "/lib/vue.js",
+    "vue-router": "/lib/vue-router.js",
+    "vuex": "/lib/vuex.js",
+    "nav": "http://localhost:8888/js/app.js",
+    "pa": "http://localhost:8081/js/app.js",
+    "pb": "http://localhost:8082/js/app.js"
   }
 }
