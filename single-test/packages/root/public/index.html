@@ -5,17 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>spa test</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
     <meta name="importmap-type" content="systemjs-importmap" />
+    <link
+      rel="preload"
+      href="/lib/single-spa.dev.js"
+      as="script"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="/lib/vue.js"
+      as="script"
+      crossorigin="anonymous"
+    />
     <!-- 配置文件注意写成绝对路径：/开头，否则访问子项目的时候重定向-->
     <script type="systemjs-importmap" src="importmap.json"></script>
-    <script src="/lib/vue.js"></script>
-    <!-- <script src="/lib/vue-router.js"></script>
-    <script src="/lib/vuex.js"></script>
-    <script src="/lib/single-spa.dev.js"></script> -->
-
+    <script src="https://cdn.bootcdn.net/ajax/libs/core-js/3.8.3/minified.min.js"></script>
     <script src="/lib/import-map-overrides.js"></script>
-
     <script src="/lib/system.js"></script>
     <script src="/lib/amd.js"></script>
     <script src="/lib/named-exports.js"></script>

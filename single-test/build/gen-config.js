@@ -56,6 +56,7 @@ module.exports = function (process, dirname) {
     },
 
     chainWebpack: config => {
+      config.output.jsonpFunction = 'wpJsonpFlightsWidget';
 
       config.output.library("").libraryTarget('umd')
 
