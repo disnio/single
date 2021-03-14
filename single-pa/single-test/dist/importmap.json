@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "nav": "http://localhost:8888/js/app.js",
+    "pa": "http://localhost:8081/js/app.js",
+    "pb": "http://localhost:8082/js/app.js",
+    "single-spa": "https://cdn.bootcdn.net/ajax/libs/single-spa/5.8.0/system/single-spa.dev.js",
+    "vue": "https://cdn.bootcdn.net/ajax/libs/vue/2.6.12/vue.js",
+    "vue-router": "https://cdn.bootcdn.net/ajax/libs/vue-router/3.4.7/vue-router.js",
+    "vuex": "https://cdn.bootcdn.net/ajax/libs/vuex/3.5.1/vuex.js"
+  }
+}

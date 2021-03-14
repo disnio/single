@@ -1,5 +1,13 @@
 /*/.history
 /*/node_modules
 /.history
-/single-test/dist
-/single-test/packages/root/node_modules
+/*/dist
+/*/.yarn
+.DS_Store
+node_modules
+.history
+.git
+.idea
+.yarn
+.vscode
+.vscode/settings.json
