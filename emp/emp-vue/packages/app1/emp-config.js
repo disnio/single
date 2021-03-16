@@ -1,4 +1,7 @@
 const withVue2 = require('@efox/emp-vue2')
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin")
+
+
 module.exports = withVue2(({ config }) => {
   const projectName = 'app1'
   const port = 3001
@@ -35,6 +38,10 @@ module.exports = withVue2(({ config }) => {
     }
     return args
   })
+
+  config
+    .plugin('node')
+    .use(NodePolyfillPlugin);
 
   config.plugins.delete("eslint");
   config.optimization.minimizers.delete('TerserPlugin')

@@ -1,5 +1,7 @@
 const withVue2 = require('@efox/emp-vue2')
-const path = require("path")
+const path = require("path");
+const fs = require("fs");
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin")
 
 
 module.exports = withVue2(({ config }) => {
@@ -42,10 +44,27 @@ module.exports = withVue2(({ config }) => {
     return args
   })
 
+  config
+    .plugin('node')
+    .use(NodePolyfillPlugin);
+
   config.plugins.delete("eslint");
   config.optimization.minimizers.delete('TerserPlugin')
 
-  config.resolve.alias
-    .set("@common", "./src/components")
+  // config.resolve.alias = {
+  //   ...config.resolve.alias,
+  //   "@common": "./src/components"
+  // }
+
+  config.resolve.fallback = {
+    ...config.resolve.fallback,
+    fs: fs
+  }
+
+  config.resolve.alias.set("@common", path.resolve(__dirname, "./src/components"))
+
+  console.log(config)
+
+
 
 })
