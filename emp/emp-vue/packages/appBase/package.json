@@ -1,0 +1,50 @@
+{
+  "name": "appBase",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@efox/emp-cli": "^1.4.0",
+    "@efox/emp-vue2": "^1.2.0",
+    "serve": "^11.3.2"
+  },
+  "dependencies": {
+    "globby": "^11.0.2",
+    "vue": "^2.6.12",
+    "vue-router": "^3.5.1",
+    "vuex": "^3.6.2",
+    "axios": "^0.19.2",
+    "clipboard": "^2.0.5",
+    "codemirror": "^5.52.0",
+    "connect": "^3.7.0",
+    "driver": "^1.0.0",
+    "echarts": "^4.6.0",
+    "element-ui": "^2.13.0",
+    "file-saver": "^2.0.2",
+    "html2canvas": "^1.0.0-rc.5",
+    "increase-memory-limit": "^1.0.7",
+    "js-cookie": "^2.2.1",
+    "jsencrypt": "^3.0.0-rc.1",
+    "jsonlint": "^1.6.3",
+    "jspdf": "^2.1.1",
+    "loadjs": "^4.2.0",
+    "lodash": "^4.17.20",
+    "mathjs": "^6.6.1",
+    "minireset.css": "0.0.6",
+    "moment": "^2.24.0",
+    "nprogress": "^0.2.0",
+    "performant-array-to-tree": "^1.7.1",
+    "screenfull": "^4.0.0",
+    "sortablejs": "^1.12.0"
+
+
+  },
+  "scripts": {
+    "dev": "emp dev",
+    "build": "emp build --env prod",
+    "start": "emp serve",
+    "stat": "emp build --analyze",
+    "emp": "emp"
+  }
+}
