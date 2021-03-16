@@ -19,12 +19,12 @@ export function getDetailsPageList(query) { //交易公告列表接口
 
 /**
  * @功能描述: 根据发电公司编码获取组织信息
- * @参数: 
- * @返回值: 
+ * @参数:
+ * @返回值:
  * @作者: 张朋
  * @Date: 2019-12-13 17:48:32
- * @最新修改内容: 
- * @LastEditTime: 
+ * @最新修改内容:
+ * @LastEditTime:
  */
 export function getFdOrgData(id) { //交易结果列表
     return fetch({
@@ -36,12 +36,12 @@ export function getFdOrgData(id) { //交易结果列表
 
 /**
  * @功能描述: 非双边协商获取标杆电价
- * @参数: 
- * @返回值: 
+ * @参数:
+ * @返回值:
  * @作者: 张朋
  * @Date: 2019-12-13 15:07:26
- * @最新修改内容: 
- * @LastEditTime: 
+ * @最新修改内容:
+ * @LastEditTime:
  */
 export function selectOneBenchmarkPriceSale(query) {
     return fetch({
@@ -53,7 +53,7 @@ export function selectOneBenchmarkPriceSale(query) {
 
 /**
  * selectListBenchmarkPriceSale
- * @功能描述: 非双边协商获取标杆电价数组 
+ * @功能描述: 非双边协商获取标杆电价数组
  * @作者: 李志佳
  * @Date: 2020年5月19日14:37:15
  */
@@ -228,8 +228,8 @@ export function updateCommit(obj, id) { //编辑提交
 export function ResultExportObj(id) {
     let token = getToken()
     let url = "/api/business/jyTradingResultsDetail/exportSellResultDetail?token=" + token + "&jyTradingResultsId=" + id
-        // url+="&ModelCode="+sessionStorage.getItem("modelCode");
-        window.location.href = url + "&ModelCode=" + window.mdcode;
+    // url+="&ModelCode="+sessionStorage.getItem("modelCode");
+    window.location.href = url + "&ModelCode=" + window.mdcode;
 }
 
 export function exportObj(parm) {

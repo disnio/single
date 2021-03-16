@@ -41,7 +41,7 @@
     "vuex": "^3.6.2"
   },
   "scripts": {
-    "dev": "emp dev",
+    "dev": "emp dev -wl wp.js",
     "build": "emp build --env prod",
     "start": "emp serve",
     "stat": "emp build --analyze",

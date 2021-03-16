@@ -17,7 +17,7 @@ module.exports = withVue2(({ config }) => {
         filename: 'emp.js',
         exposes: {
           './store': "./src/store/index",
-          "./common": "./src/components"
+          '@common': "./src/components"
         },
         remotes: {
           '@app2': 'app2',
@@ -56,15 +56,13 @@ module.exports = withVue2(({ config }) => {
   //   "@common": "./src/components"
   // }
 
+  config.resolve.alias
+    .set('@common', "src/components")
+    .delete("vue")
+
   config.resolve.fallback = {
     ...config.resolve.fallback,
     fs: fs
   }
 
-  config.resolve.alias.set("@common", path.resolve(__dirname, "./src/components"))
-
-  console.log(config)
-
-
-
-})
+});
